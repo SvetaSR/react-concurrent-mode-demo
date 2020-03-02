@@ -1,4 +1,4 @@
-import React, { Suspense, useState, useTransition } from "react";
+import React, { useState } from "react";
 import "./styles.css";
 import { TvShowList } from "./TvShowList";
 import { TvShowDetails } from "./TvShowDetails";
