@@ -1,4 +1,4 @@
-import React, { Suspense, useState, useTransition } from "react";
+import React, { Suspense, useState } from "react";
 import { Spinner } from "./Spinner";
 import "./styles.css";
 import { TvShowList } from "./TvShowList";
@@ -7,14 +7,9 @@ import { TvShowDetails } from "./TvShowDetails";
 export default function App() {
 
   const [id, setId] = useState(1);
-  const [startTransition, isPending] = useTransition({
-    timeoutMs: 3000
-  });
 
   const onClick = (id) => {
-    startTransition(() => {
-      setId(id);
-    });
+    setId(id);
   }
 
   return (
@@ -24,9 +19,7 @@ export default function App() {
         <Suspense fallback={<Spinner />}>
           <TvShowList onClick={onClick} />
         </Suspense>
-        <Suspense fallback={<Spinner />}>
-          <TvShowDetails id={id} />
-        </Suspense>
+        <TvShowDetails id={id} />
       </div>
     </div>
   );

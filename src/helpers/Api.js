@@ -16,7 +16,7 @@ const tvDataApi = memoize((id) => {
   return new Promise(resolve => {
     setTimeout(() => {
       resolve(tvData[id]);
-    }, API_TIMEOUT);
+    }, API_TIMEOUT + 500);
   });
 });
 
@@ -24,7 +24,7 @@ const commentsApi = memoize((id) => {
   return new Promise(resolve => {
     setTimeout(() => {
       resolve(comments.sort((a, b) => 0.5 - Math.random()));
-    }, API_TIMEOUT + 500 );
+    }, API_TIMEOUT );
   });
 });
 

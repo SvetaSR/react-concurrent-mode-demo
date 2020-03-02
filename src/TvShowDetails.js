@@ -1,6 +1,19 @@
-import React, {Suspense} from "react";
+import React, {Suspense, SuspenseList} from "react";
 import { getTvDataResource, getCommentsResource } from './helpers/Api';
 import { Spinner } from './Spinner';
+
+const Details = ({id}) => {
+    const tvShowResource = getTvDataResource(id).read();
+    return <div className="flex">
+    <div>
+        <h2>{tvShowResource.name}</h2>
+        <div className="details">{tvShowResource.description}</div>
+    </div>
+    <div>
+        <img src={`https://res.cloudinary.com/dqsubx7oc/image/upload/w_200/v1582908284/tv-shows/${id}.jpg`} alt={tvShowResource.name} />
+    </div>
+</div>;
+}
 
 const Comments = ({id}) => {
     const commentsResource = getCommentsResource(id).read();
@@ -16,17 +29,10 @@ const Comments = ({id}) => {
 }
 
 export const TvShowDetails = ({id}) => {
-    const tvShowResource = getTvDataResource(id).read();
     return <div className="tvshow-details">
-        <div className="flex">
-            <div>
-                <h2>{tvShowResource.name}</h2>
-                <div className="details">{tvShowResource.description}</div>
-            </div>
-            <div>
-                <img src={`https://res.cloudinary.com/dqsubx7oc/image/upload/w_200/v1582908284/tv-shows/${id}.jpg`} alt={tvShowResource.name} />
-            </div>
-        </div>
-        <Suspense fallback={<Spinner />}><Comments id={id} /></Suspense>
+        {/* <SuspenseList revealOrder="forwards"> */}
+            <Suspense fallback={<Spinner />}><Details id={id} /></Suspense>
+            <Suspense fallback={<Spinner />}><Comments id={id} /></Suspense>
+        {/* </SuspenseList> */}
     </div>
 }
