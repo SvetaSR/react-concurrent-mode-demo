@@ -24,16 +24,10 @@ export default function App() {
         <Suspense fallback={<Spinner />}>
           <TvShowList onClick={onClick} />
         </Suspense>
-        <TvShowDetails id={id} />
+        <Suspense fallback={<Spinner />}>
+          <TvShowDetails id={id} />
+        </Suspense>
       </div>
     </div>
   );
 }
-
-
-/* 
-    <Suspense fallback={<Spinner />}>
-      <Page id={1} />
-    </Suspense>
-
-*/
