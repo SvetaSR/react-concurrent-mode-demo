@@ -1,9 +1,9 @@
-# react-concurrent-mode-demo
-React Concurrent Mode Demo
+# React Concurrent Mode Demo
 
-Branches:
-*master* - Synchronous React
+## Branches:
 
-*use-transition* - Concurrent React with an example of UseTransition
+**master** - Synchronous React
 
-*susepnse* - Concurrent React with an example of Suspense for Data Fetching, and SuspenseList.
+**use-transition** - Concurrent React with an example of UseTransition
+
+**susepnse** - Concurrent React with an example of Suspense for Data Fetching, and SuspenseList.
