@@ -2,7 +2,7 @@ import memoize from "memoize-one";
 import { wrapPromise } from './wrapPromise'
 import { tvMetadata, tvData, comments } from "./data";
 
-const API_TIMEOUT = 1000;
+const API_TIMEOUT = 500;
 
 const tvMetadataApi = memoize(() => {
   return new Promise(resolve => {
