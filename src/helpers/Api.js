@@ -16,7 +16,7 @@ const tvDataApi = memoize((id) => {
   return new Promise(resolve => {
     setTimeout(() => {
       resolve(tvData[id]);
-    }, API_TIMEOUT + 500);
+    }, API_TIMEOUT + 1000);
   });
 });
 
